@@ -22,8 +22,6 @@ NeoBundle 'Chiel92/vim-autoformat'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'git://github.com/jsx/jsx.vim.git'
 NeoBundle 'fatih/vim-go'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets'
 
 call neobundle#end()
 
@@ -45,6 +43,8 @@ set nowrap ts=2 sw=2 ai et
 set laststatus=2
 set encoding=utf-8
 set fileformat=unix
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 "
 " end basic settings
 
