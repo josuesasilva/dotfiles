@@ -1,5 +1,5 @@
 URxvt.scrollBar: false
-URxvt.font: 9x15
+!URxvt.font: 9x15
 
 ! Background color
 URxvt*background: black
