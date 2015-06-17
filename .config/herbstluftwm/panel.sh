@@ -15,7 +15,7 @@ panel_height=16
 font="-*-fixed-medium-*-*-*-12-*-*-*-*-*-*-*"
 bgcolor=$(hc get frame_border_normal_color)
 selbg=$(hc get window_border_active_color)
-selfg='#101010'
+selfg='#333333'
 
 ####
 # Try to find textwidth binary.
@@ -179,6 +179,6 @@ hc pad $monitor $panel_height
     # After the data is gathered and processed, the output of the previous block
     # gets piped to dzen2.
 
-} 2> /dev/null | dzen2 -w $panel_width -x $x -y $y -fn "$font" -h $panel_height \
-    -e 'button3=;button4=exec:herbstclient use_index -1;button5=exec:herbstclient use_index +1' \
+} 2> /dev/null | dzen2 -w $panel_width -x $x -y $y -h $panel_height \
+    -title-name dzentop -e 'button3=;button4=exec:herbstclient use_index -1;button5=exec:herbstclient use_index +1' \
     -ta l -bg "$bgcolor" -fg '#efefef'
