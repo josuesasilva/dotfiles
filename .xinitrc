@@ -23,4 +23,10 @@ if [ -f "$usermodmap" ]; then
     xmodmap "$usermodmap"
 fi
 
-exec startfluxbox
+xscreensaver -no-splash &
+setxkbmap -model abnt2 -layout br -variant abnt2 &
+start-pulseaudio-x11 &
+xcompmgr -c -C -t-5 -l-5 -r4.2 -o.55 &
+feh --bg-scale ~/imgs/wallhaven-214692.png &
+
+exec herbstluftwm
