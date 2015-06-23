@@ -22,6 +22,7 @@ NeoBundle 'Chiel92/vim-autoformat'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'git://github.com/jsx/jsx.vim.git'
 NeoBundle 'fatih/vim-go'
+NeoBundle 'scrooloose/nerdcommenter'
 
 call neobundle#end()
 
@@ -45,6 +46,12 @@ set encoding=utf-8
 set fileformat=unix
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+if has("gui_running")
+
+else
+  set background=dark
+endif
 "
 " end basic settings
 
@@ -54,7 +61,13 @@ map <leader>ev :e $HOME\_vimrc<cr>
 map <leader>cal :Calendar<cr>
 map <leader>cb :bd<cr>
 map <leader>nb :bnext<cr>
+map <leader>hb :hide<cr>
+map <leader>vs :vsplit<cr>
+map <leader>hs :split<cr>
+map <leader>t :NERDTreeToggle<cr>
+
 noremap <F3> :Autoformat<CR><CR>
+
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>t <Plug>(go-test)
