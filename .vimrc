@@ -4,7 +4,7 @@ if has('vim_starting')
  set nocompatible
 
  " Required:
- set runtimepath+=/home/josue/.vim/bundle/neobundle.vim/
+ set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
 " Required:
@@ -23,6 +23,7 @@ NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'git://github.com/jsx/jsx.vim.git'
 NeoBundle 'fatih/vim-go'
 NeoBundle 'scrooloose/nerdcommenter'
+NeoBundle 'tpope/vim-vividchalk'
 
 call neobundle#end()
 
@@ -41,16 +42,21 @@ syntax on
 set backupdir=/tmp
 set noswapfile
 set nowrap ts=2 sw=2 ai et
-set laststatus=2
 set encoding=utf-8
 set fileformat=unix
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 if has("gui_running")
-
+  colorscheme vividchalk
+  set background=dark
+  set nu
+  set guifont=Monaco:h12
+  set guioptions-=r  "remove right-hand scroll bar
+  set guioptions-=L  "remove left-hand scroll bar
 else
   set background=dark
+  set laststatus=2
 endif
 "
 " end basic settings
@@ -67,6 +73,12 @@ map <leader>hs :split<cr>
 map <leader>t :NERDTreeToggle<cr>
 
 noremap <F3> :Autoformat<CR><CR>
+
+map <F1> <Esc>
+imap <F1> <Esc>
+cmap W w
+
+map <leader>ev :e ~/.vimrc<cr>
 
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
