@@ -24,6 +24,7 @@ NeoBundle 'git://github.com/jsx/jsx.vim.git'
 NeoBundle 'fatih/vim-go'
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'tpope/vim-vividchalk'
+NeoBundle 'itchyny/lightline.vim'
 
 call neobundle#end()
 
