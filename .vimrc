@@ -39,8 +39,17 @@ NeoBundleCheck
 
 " basic settings
 "
+
+if has('win32')
+  set backupdir=C:\Windows\Temp
+  set backspace=indent,eol,start
+  map <leader>ev :e ~/_vimrc<cr>
+else
+  set backupdir=/tmp
+  map <leader>ev :e ~/.vimrc<cr>
+endif
+
 syntax on
-set backupdir=/tmp
 set noswapfile
 set nowrap ts=2 sw=2 ai et
 set encoding=utf-8
@@ -50,9 +59,18 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 if has("gui_running")
   colorscheme vividchalk
+
+  if has('win32')
+    set guifont=Consolas:h11:cANSI
+    set guioptions-=T  "remove toolbar
+    set guioptions-=m  "remove menu bar 
+  else
+    set guifont=Monaco:h12
+  endif
+
+  set vb t_vb= "remove beep
   set background=dark
   set nu
-  set guifont=Monaco:h12
   set guioptions-=r  "remove right-hand scroll bar
   set guioptions-=L  "remove left-hand scroll bar
 else
@@ -77,9 +95,13 @@ noremap <F3> :Autoformat<CR><CR>
 
 map <F1> <Esc>
 imap <F1> <Esc>
+
 cmap W w
 
-map <leader>ev :e ~/.vimrc<cr>
+map <C-v> "+gP 
+map <C-c> "+y
+imap <C-v> "+gP 
+imap <C-c> "+y
 
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
