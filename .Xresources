@@ -1,7 +1,15 @@
-dzen2.font:xft:Terminess Powerline:pixelsize=11:antialias=true:hinting=true
+Xft.antialias: 1
+Xft.autohint: 0  
+Xft.dpi: 96  
+Xft.hinting: 1  
+Xft.hintstyle: hintfull  
+Xft.lcdfilter: lcddefault  
+Xft.rgba: rgb
+
+#dzen2.font:xft:Terminess Powerline:pixelsize=11:antialias=true:hinting=true
 
 URxvt.scrollBar: false
-URxvt.font:xft:Terminess Powerline:pixelsize=11:antialias=true:hinting=true
+#URxvt.font:xft:Terminess Powerline:pixelsize=11:antialias=true:hinting=true
 URxvt*background: black
 URxvt*foreground: white
 URxvt*color0: black
