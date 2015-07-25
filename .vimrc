@@ -62,10 +62,12 @@ if has("gui_running")
 
   if has('win32')
     set guifont=Consolas:h11:cANSI
-    set guioptions-=T  "remove toolbar
-    set guioptions-=m  "remove menu bar 
   else
-    set guifont=Monaco:h12
+    if system('uname')=~'Darwin'
+      set guifont=Monaco:h12
+    else
+      " default font
+    endif
   endif
 
   set vb t_vb= "remove beep
@@ -73,6 +75,8 @@ if has("gui_running")
   set nu
   set guioptions-=r  "remove right-hand scroll bar
   set guioptions-=L  "remove left-hand scroll bar
+  set guioptions-=T  "remove toolbar
+  set guioptions-=m  "remove menu bar
 else
   set background=dark
   set laststatus=2
@@ -82,7 +86,6 @@ endif
 
 " keymaps
 "
-map <leader>ev :e $HOME\_vimrc<cr>
 map <leader>cal :Calendar<cr>
 map <leader>cb :bd<cr>
 map <leader>nb :bnext<cr>
@@ -98,10 +101,8 @@ imap <F1> <Esc>
 
 cmap W w
 
-map <C-v> "+gP 
+map <C-v> "+gP
 map <C-c> "+y
-imap <C-v> "+gP 
-imap <C-c> "+y
 
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
@@ -110,4 +111,4 @@ au FileType go nmap <leader>c <Plug>(go-coverage)
 au FileType c nmap <leader>c :!g++ % -o %:r<cr>
 au FileType c nmap <leader>r :!./%:r<cr>
 "
-" end keymaps
+" end keymap
